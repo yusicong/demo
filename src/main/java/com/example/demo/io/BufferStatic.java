@@ -26,8 +26,8 @@ public class BufferStatic {
         Map<String, Integer> statisticsMap = new HashMap<>();
 
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(statisticsSrc)), "GB2312"));
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(resultSrc)), "GB2312"));
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(statisticsSrc), "GB2312"));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(resultSrc), "UTF-8"));
             int c;
             while ((c = bufferedReader.read()) != -1) {
                 String charC = String.valueOf((char) c);
