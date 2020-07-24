@@ -16,8 +16,8 @@ public class BufferedStreamDemo {
     public static void main(String[] args) {
         String sourceSrc = "D:\\英雄时刻\\49847123\\英雄时刻_20200302-22点25分47s.avi";
         String targetSrc = "D:\\BaiduNetdiskDownload\\课件笔记源码资料2.avi";
-//        copyByBuffered(sourceSrc,targetSrc);//6502
-        copyByNormalStream(sourceSrc, targetSrc);//30505
+        copyByBuffered(sourceSrc,targetSrc);//6502
+//        copyByNormalStream(sourceSrc, targetSrc);//30505
     }
 
     public static void copyByBuffered(String sourceSrc, String targetSrc) {
@@ -25,14 +25,10 @@ public class BufferedStreamDemo {
         BufferedInputStream bufferedInputStream = null;
         BufferedOutputStream bufferedOutputStream = null;
         try {
-            File inputFile = new File(sourceSrc);
-            System.out.println(inputFile.getPath());
-            FileInputStream inputStream = new FileInputStream(inputFile);
+            FileInputStream inputStream = new FileInputStream(sourceSrc);
             bufferedInputStream = new BufferedInputStream(inputStream);
 
-            File outPutFile = new File(targetSrc);
-            System.out.println(outPutFile.getPath());
-            FileOutputStream fileOutputStream = new FileOutputStream(outPutFile);
+            FileOutputStream fileOutputStream = new FileOutputStream(targetSrc);
             bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 
             byte[] bytes = new byte[2048];
@@ -66,8 +62,8 @@ public class BufferedStreamDemo {
 
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream(new File(sourceSrc));
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(targetSrc));
+            fileInputStream = new FileInputStream(sourceSrc);
+            FileOutputStream fileOutputStream = new FileOutputStream(targetSrc);
             byte[] bytes = new byte[1024];
             int len;
             while ((len = fileInputStream.read(bytes)) != -1) {
